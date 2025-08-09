@@ -29,11 +29,11 @@ const HeroSection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-slide-up">
-            <Button variant="hero" size="lg" className="gap-2">
+            <Button variant="hero" size="lg" className="gap-2" onClick={() => document.getElementById('practice')?.scrollIntoView({ behavior: 'smooth' })}>
               <PlayCircle className="h-5 w-5" />
               Start Learning
             </Button>
-            <Button variant="outline" size="lg" className="gap-2">
+            <Button variant="outline" size="lg" className="gap-2" onClick={() => document.getElementById('grades')?.scrollIntoView({ behavior: 'smooth' })}>
               <BookOpen className="h-5 w-5" />
               Browse Topics
             </Button>

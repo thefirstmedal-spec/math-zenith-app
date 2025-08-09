@@ -17,21 +17,21 @@ const Header = () => {
           </div>
           
           <nav className="hidden md:flex items-center gap-6">
-            <Button variant="ghost" className="gap-2">
+            <Button variant="ghost" className="gap-2" onClick={() => document.getElementById('grades')?.scrollIntoView({ behavior: 'smooth' })}>
               <BookOpen className="h-4 w-4" />
               Grades
             </Button>
-            <Button variant="ghost" className="gap-2">
+            <Button variant="ghost" className="gap-2" onClick={() => document.getElementById('practice')?.scrollIntoView({ behavior: 'smooth' })}>
               <Calculator className="h-4 w-4" />
               Practice
             </Button>
-            <Button variant="ghost" className="gap-2">
+            <Button variant="ghost" className="gap-2" onClick={() => alert('Progress tracking coming soon!')}>
               <Trophy className="h-4 w-4" />
               Progress
             </Button>
           </nav>
           
-          <Button variant="outline" size="sm" className="gap-2">
+          <Button variant="outline" size="sm" className="gap-2" onClick={() => alert('Profile features coming soon!')}>
             <User className="h-4 w-4" />
             Profile
           </Button>

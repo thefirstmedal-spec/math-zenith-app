@@ -12,8 +12,11 @@ const grades = [
 ];
 
 const GradeSelector = () => {
+  const handleGradeSelect = (grade: typeof grades[0]) => {
+    alert(`Starting ${grade.name} curriculum!\n\nTopics: ${grade.topics}\n\nThis will take you to ${grade.name} lessons and practice materials.`);
+  };
   return (
-    <section className="py-16 bg-secondary/30">
+    <section className="py-16 bg-secondary/30" id="grades">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Choose Your Grade Level</h2>
@@ -24,7 +27,7 @@ const GradeSelector = () => {
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {grades.map((grade) => (
-            <Card key={grade.id} className="p-6 hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 cursor-pointer group">
+            <Card key={grade.id} className="p-6 hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 cursor-pointer group" onClick={() => handleGradeSelect(grade)}>
               <div className={`bg-gradient-to-r ${grade.color} p-4 rounded-lg mb-4 group-hover:scale-105 transition-transform duration-300`}>
                 <GraduationCap className="h-8 w-8 text-white mx-auto" />
               </div>
@@ -32,7 +35,10 @@ const GradeSelector = () => {
               <h3 className="text-xl font-semibold mb-2 text-center">{grade.name}</h3>
               <p className="text-muted-foreground text-center mb-4">{grade.topics}</p>
               
-              <Button variant="outline" className="w-full gap-2 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+              <Button variant="outline" className="w-full gap-2 group-hover:bg-primary group-hover:text-primary-foreground transition-colors" onClick={(e) => {
+                e.stopPropagation();
+                handleGradeSelect(grade);
+              }}>
                 <BookOpen className="h-4 w-4" />
                 Start Learning
               </Button>
