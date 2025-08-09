@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { GraduationCap, BookOpen } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const grades = [
   { id: 1, name: "Grade 1", topics: "Basic Numbers, Addition, Subtraction", color: "from-blue-400 to-blue-600" },
@@ -12,8 +13,10 @@ const grades = [
 ];
 
 const GradeSelector = () => {
+  const navigate = useNavigate();
+  
   const handleGradeSelect = (grade: typeof grades[0]) => {
-    alert(`Starting ${grade.name} curriculum!\n\nTopics: ${grade.topics}\n\nThis will take you to ${grade.name} lessons and practice materials.`);
+    navigate(`/grade/${grade.id}`);
   };
   return (
     <section className="py-16 bg-secondary/30" id="grades">
